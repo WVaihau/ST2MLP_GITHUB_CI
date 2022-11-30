@@ -1,6 +1,6 @@
 
 """
-simple python flask application
+simple python flask application for MLOPS COURSE
 """
 
 ##########################################################################
