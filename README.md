@@ -1,4 +1,6 @@
-# CI with github
+# Continuous Integration with github
+
+> __Go to 4. to test the image on docker hub__
 
 ## 1. Exploration
 
@@ -68,7 +70,7 @@ git remote add origin REMOTE_URL_LINK
 
 - configure the yml file
 
-## 3 Implement a job to build and push a docker file on docker hub from github action
+## 3. Implement a job to build and push a docker file on docker hub from github action
 
 - [create a docker hub account]("https://hub.docker.com/")
 
@@ -85,3 +87,21 @@ DOCKER_HUB_ACCESS_TOKEN your _docker hub access token_
 - Add a new job in your python workflow .yml file which will build and push your docker file on docker hub
 
 [> tutorial to build and push a docker file to docker hub from github]("https://docs.docker.com/build/ci/github-actions/")
+
+## 4. Test my image from docker hub
+
+1. download the docker image
+
+```cmd
+docker pull wvaihau/github_ci:latest
+```
+
+2. run the docker image in detached mode
+
+```cmd
+docker run -d -p 5000:5000 wvaihau/github_ci
+```
+
+Note : If a hash has been generated you can go on the next step
+
+3. Visit the flask app at __localhost:5000__
