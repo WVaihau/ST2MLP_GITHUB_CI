@@ -41,7 +41,7 @@ jobs:
 
   dockerfile_to_docker_hub:
 
-    needs: build # the build job (ligne 16) must be executed before
+    needs: build-python-workflow # the build job (ligne 16) must be executed before
 
     runs-on: ubuntu-latest
     steps:
