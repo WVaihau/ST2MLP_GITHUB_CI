@@ -15,14 +15,11 @@ pipeline {
       }
     }
     stage('Deploy') {
-      // Note : We supposed that Docker CLI is connected and have access to the repo
       steps {
         // Build docker image
         bat 'docker build -t kh-flask-api .'
-        // Associate tag to docker hub repo
-        bat 'docker tag kh-flask-api wvaihau/jenkins-ci'
-        // Deploy to docker hub
-        bat 'docker push wvaihau/jenkins-ci:latest'
+        // Run in a container
+        bat 'docker run -d -p 5000:5000 kh-flask-api'
       }
     }
 }
